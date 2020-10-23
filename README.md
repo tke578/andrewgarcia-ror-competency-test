@@ -34,4 +34,4 @@ To run tests
 | Resource  | Description |
 | :--- | :--- |
 | `Users` |  CRUD for Users. Also login `/sign_in` sign up `/sign_up`. Only users with role admin can create users. |
-| `Articles` |  CRUD for Articles.  |
+| `Articles` |  CRUD for Articles.  Certain users with types of roles have specific permissions. |
