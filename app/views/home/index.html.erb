@@ -1,0 +1,6 @@
+<% if @articles.blank? %>
+	<h3>No Articles today</h3>
+<% else %>
+	<h1>Recent Articles</h1>
+	<%= render partial: 'articles/index', locals: { articles: @articles } %>
+<% end %>

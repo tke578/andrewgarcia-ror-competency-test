@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+  <div class="container">
+    <a class="navbar-brand mb-0 h1" href='/'>Articles</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown Menu
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to 'View All Articles', articles_path, class: "dropdown-item"  %>
+
+          <% if user_signed_in? %>
+
+            <%= link_to 'New Article', new_article_path, class: "dropdown-item" if logged_in?(:editor) %>
+            <% if logged_in?(:admin) %>
+              <%= link_to 'Users', users_admin_index_path, class: "dropdown-item"  %>
+              <%= link_to 'Users', new_users_admin_path, class: "dropdown-item"  %>
+            <% end %>
+            <div class="dropdown-divider"></div>
+            <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+
+          <% else %>
+
+          <%= link_to 'Log In', new_user_session_path, class: "dropdown-item" %>
+          <%= link_to 'Sign Up', new_user_registration_path, class: "dropdown-item" %>
+          <% end %>
+
+        </div>
+      </li>
+    </ul>
+  </div>
+  <% if user_signed_in? %>
+    <span class="mb-0">Logged in as: <%= current_user.email %></span>
+  <% end %>
+</nav>
