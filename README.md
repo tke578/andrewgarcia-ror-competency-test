@@ -1,24 +1,37 @@
-# README
+# Articles
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+View some interesting articles!
 
-Things you may want to cover:
+### Local Environment set up
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
+Download Docker
 
-* Database creation
+` docker build  -t andrewgarcia-ror-competency-test .`
 
-* Database initialization
+```docker-compose up```
 
-* How to run the test suite
+Run migrations
 
-* Services (job queues, cache servers, search engines, etc.)
+Open a new shell tab and `cd` into root dir
 
-* Deployment instructions
+`docker-compose run web bundle exec rake db:migrate`
 
-* ...
+Port 3000 will be exposed.
+
+To seed db
+
+`docker-compose run web bundle exec rake db:seed`
+
+To run tests
+
+`docker-compose run web bundle exec rails test`
+
+
+### Core Resources
+
+| Resource  | Description |
+| :--- | :--- |
+| `Users` |  CRUD for Users. Also login `/sign_in` sign up `/sign_up`. Only users with role admin can create users. |
+| `Articles` |  CRUD for Articles.  |
